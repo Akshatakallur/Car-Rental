@@ -1,0 +1,35 @@
+.banner{
+    width: 100%;
+    height: auto;
+
+}
+
+.banner img{
+    width: 100%;
+}
+
+.banner .text{
+    position: absolute;
+    color: black;
+    left: 150px;
+    top: 200px;
+}
+
+.banner .text h3{
+    color: black;
+    font-size: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.banner .text h4{
+    color: orange;
+    font-size: 80px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.banner .text p{
+    color: red;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+

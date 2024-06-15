@@ -1,0 +1,82 @@
+<nav class="navbar">
+    <div class="d-flex">
+      <button class="btn  btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal">   <i class="bi bi-person-plus-fill"></i>Add Cars</button>
+      <h2 style="margin-left: 500px;">Cars Information</h2>
+    </div>
+    <div class="search-Cars">
+      <input type="search" class="form-control" name="searchCars" placeholder="search Cars"
+        (input)="searchCars($event)">
+    </div>
+  </nav> 
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div  class="modal-header">
+          <h5 style="color:black" class="modal-title" id="exampleModalLabel">ADD CARS</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  
+        <div class="modal-body">
+          <form [formGroup]="carform">
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Enter Car ID</label>
+              <input type="number" class="form-control" formControlName="id" placeholder="Enter ID">
+              <span class="text-danger" *ngIf="carform.controls['id'].dirty && carform.hasError('required','id')">*Car ID is required</span>
+            </div>
+
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Enter Car Name</label>
+              <input type="name"  class="form-control" formControlName="name" placeholder="Enter Car Name">
+              <span class="text-danger" *ngIf="carform.controls['name'].dirty && carform.hasError('required','name')">*Car Name is required</span>
+            </div>
+  
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Enter Rent Price </label>
+              <input type="string" class="form-control" formControlName="price" placeholder="Enter Rent Price">
+              <span class="text-danger" *ngIf="carform.controls['price'].dirty && carform.hasError('required','price')">*Price is required</span>
+            </div>
+
+            <div class="form-group mb-2">
+              <label for="exampleInputEmail1">Add Image</label>
+              <input type="url" class="form-control" formControlName="url" placeholder="Enter url">
+              <span class="text-danger" *ngIf="carform.controls['url'].dirty && carform.hasError('required','url')">*Image is required</span>
+            </div>
+          </form>
+        </div>
+  
+        <div  class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button (click)="addcars(this.carform.value)" type="button" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row gy-3 my-3">
+        <div class="col-md-6 col-xl-4" *ngFor="let item of ldata">
+            <div class="card">
+                <img src="{{item.url}}"class="card-img-top" alt="image" style="height:15rem">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <h6 class="card-title">Rent Price: {{item.price}}</h6>
+                    <i routerLink="lupdate/{{item.id}}" style="color: orange;" class="bi bi-pencil-fill"></i>&nbsp;
+                    <i style="color: red;" (click)="deletecars(item.id)" class="bi bi-trash"></i>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+  
+  
+  
+  
+
+

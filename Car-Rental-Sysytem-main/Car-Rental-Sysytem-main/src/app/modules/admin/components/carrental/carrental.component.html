@@ -1,0 +1,21 @@
+<div class="search-Cars" style="margin-top: 2em; padding-left: 2em ;">
+    <input type="search"  placeholder="search Cars"
+        (input)="searchCars($event)">
+        <button type="send">Search Cars</button>
+</div>
+
+<div class="container">
+    <div class="row gy-3 my-3">
+        <div class="col-md-6 col-xl-4" *ngFor="let item of ldata">
+            <div class="card">
+                <img src="{{item.imgSrc}}"class="card-img-top" alt="image" style="height:15rem">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.name}}</h5>
+                    <h6 class="card-title">Rent Price: {{item.price}}</h6>
+                    <a href="admin/payment" class="btn btn-primary">Rent Now</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
